@@ -1,0 +1,73 @@
+﻿@model projectManagementSys.Models.user
+
+<div id="Register" class="popup-effect">
+    <div class="popup">
+        <!--Reg form-->
+        <div class="letter-w3ls">
+            @if (ViewBag.Message != null)
+            {
+                <h3 class="LinkClass center-block">@ViewBag.Message</h3>
+            }
+
+            @using (Html.BeginForm("Register", "Home", FormMethod.Post, new { enctype = "multipart/form-data" }))
+            {
+
+                <form>
+                    <div class="form-left-to-w3l">
+
+                        @Html.TextBoxFor(model => model.FName, new { placeholder = "First Name", type = "text" })
+
+                        @Html.ValidationMessageFor(model => model.FName, "", new { @class = "MessageError" })
+                    </div>
+                    <div class="form-left-to-w3l">
+                        @Html.TextBoxFor(model => model.LName, new { placeholder = "Last Name", type = "text" })
+
+                        @Html.ValidationMessageFor(model => model.LName, "", new { @class = "MessageError" })
+                    </div>
+                    <div class="form-left-to-w3l">
+                        @Html.TextBoxFor(model => model.Email, new { placeholder = "Email", type = "Email" })
+
+                        @Html.ValidationMessageFor(model => model.Email, "", new { @class = "MessageError" })
+                    </div>
+                    <div class="form-left-to-w3l">
+                        @Html.TextBoxFor(model => model.mobile, new { placeholder = "Mobile", type = "text" })
+
+                        @Html.ValidationMessageFor(model => model.mobile, "", new { @class = "MessageError" })
+                    </div>
+                    <div class="form-left-to-w3l">
+                        @Html.TextBoxFor(model => model.password, new { placeholder = "Password", type = "password" })
+
+                        @Html.ValidationMessageFor(model => model.password, "", new { @class = "MessageError" })
+                    </div>
+                    <div class="form-left-to-w3l">
+                        @Html.TextBoxFor(model => model.description, new { placeholder = "Description", type = "text" })
+
+                        @Html.ValidationMessageFor(model => model.description, "", new { @class = "MessageError" })
+                    </div>
+                    <div class="form-left-to-w3l">
+                        @Html.DropDownList("user_Type", EnumHelper.GetSelectList(typeof(projectManagementSys.App_Code.UsersNameMapping)), "User Type", new { @id = "dd", @class = "form-control", @style = "background:#ffffff96; border-bottom: #00a1ff 2px solid;" })
+                        @Html.ValidationMessageFor(model => model.userType, "", new { @class = "MessageError" })
+                    </div>
+                    <br />
+                    <div class="form-left-to-w3l">
+                        @Html.TextBoxFor(model => model.username, new { placeholder = "Username", type = "text" })
+
+                        @Html.ValidationMessageFor(model => model.username, "", new { @class = "MessageError" })
+                    </div>
+                    <div class="form-left-to-w3l">
+                        @Html.TextBoxFor(model => model.File, new { @type = "file", @name = "image", @required = "true" })
+
+                        @Html.ValidationMessageFor(model => model.File, "", new { @class = "MessageError" })
+                    </div>
+
+                    <div class="btnn">
+                        <button type="submit">Sign Up</button>
+                        <br>
+                    </div>
+                </form>
+            }
+            <div class="clear"></div>
+        </div>
+        <a class="close" href="#">&times;</a>
+    </div>
+</div>

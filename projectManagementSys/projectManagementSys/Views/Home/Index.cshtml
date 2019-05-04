@@ -1,0 +1,105 @@
+﻿<style>
+    input #dd {
+        opacity: .5;
+    }
+
+    #dd {
+        color: black;
+        opacity: 0.5; /*Change the opacity between 0 and 1*/
+    }
+</style>
+@{
+    ViewBag.Title = "HomePage";
+
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<section class="content-info py-5" id="about">
+    <div class="container py-md-5">
+        <div class="text-center px-lg-5">
+            <div class="title-desc text-center px-lg-5">
+                <p class="px-lg-5 sub-wthree">Here , you can add your project's description you want to be done ! . so .. we'll find a project manager , leader and team to meet you and accomplish it for you .. </p>
+            </div>
+        </div>
+    </div>
+</section>
+    <!--/gallery -->
+    <section class="gallery py-5" id="gallery">
+        <div class="container py-md-5">
+
+            <h3 class="title-w3pvt text-center mb-5">projects</h3>
+            <div class="gallery-content">
+                <div class="row">
+                    <div class="col-md-4 col-sm-6 gal-img">
+                        <a href="#gal1"><img src="~/content/images/g1.jpg" alt="aegis" class="img-fluid mt-4"></a>
+                    </div>
+                    <div class="col-md-4 col-sm-6 gal-img">
+                        <a href="#gal2"><img src="~/content/images/g2.jpg" alt="aegis" class="img-fluid mt-4"></a>
+                    </div>
+                    <div class="col-md-4 col-sm-6 gal-img">
+                        <a href="#gal3"><img src="~/content/images/g3.jpg" alt="aegis" class="img-fluid mt-4"></a>
+                    </div>
+                    <div class="col-md-4 col-sm-6 gal-img">
+                        <a href="#gal4"><img src="~/content/images/g4.jpg" alt="aegis" class="img-fluid mt-4"></a>
+                    </div>
+                    <div class="col-md-4 col-sm-6 gal-img">
+                        <a href="#gal5"><img src="~/content/images/g5.jpg" alt="aegis" class="img-fluid mt-4"></a>
+                    </div>
+                    <div class="col-md-4 col-sm-6 gal-img">
+                        <a href="#gal6"><img src="~/content/images/g6.jpg" alt="aegis" class="img-fluid mt-4"></a>
+                    </div>
+
+                </div>
+                <!-- gallery popups -->
+                <!-- popup-->
+                <div id="gal1" class="popup-effect">
+                    <div class="popup">
+                        <img src="~/content/images/g1.jpg" alt="Popup image" class="img-fluid mt-4" />
+                        <a class="close" href="#gallery">&times;</a>
+                    </div>
+                </div>
+                <!-- //popup -->
+                <!-- popup-->
+                <div id="gal2" class="popup-effect">
+                    <div class="popup">
+                        <img src="~/content/images/g2.jpg" alt="Popup image" class="img-fluid mt-4" />
+                        <a class="close" href="#gallery">&times;</a>
+                    </div>
+                </div>
+                <!-- //popup -->
+                <!-- popup-->
+                <div id="gal3" class="popup-effect">
+                    <div class="popup">
+                        <img src="~/content/images/g3.jpg" alt="Popup image" class="img-fluid mt-4" />
+                        <a class="close" href="#gallery">&times;</a>
+                    </div>
+                </div>
+                <!-- //popup -->
+                <!-- popup-->
+                <div id="gal4" class="popup-effect">
+                    <div class="popup">
+                        <img src="~/content/images/g4.jpg" alt="Popup image" class="img-fluid mt-4" />
+                        <a class="close" href="#gallery">&times;</a>
+                    </div>
+                </div>
+                <!-- //popup -->
+                <!-- popup-->
+                <div id="gal5" class="popup-effect">
+                    <div class="popup">
+                        <img src="~/content/images/g5.jpg" alt="Popup image" class="img-fluid mt-4" />
+                        <a class="close" href="#gallery">&times;</a>
+                    </div>
+                </div>
+                <!-- //popup -->
+                <!-- popup-->
+                <div id="gal6" class="popup-effect">
+                    <div class="popup">
+                        <img src="~/content/images/g6.jpg" alt="Popup image" class="img-fluid mt-4" />
+                        <a class="close" href="#gallery">&times;</a>
+                    </div>
+                </div>
+                <!-- //popup -->
+                <!-- //gallery popups -->
+            </div>
+        </div>
+    </section>
+    <!-- //gallery-->

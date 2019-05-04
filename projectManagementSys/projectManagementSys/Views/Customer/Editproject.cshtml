@@ -1,0 +1,71 @@
+﻿@model projectManagementSys.Models.project
+@{
+    ViewBag.Title = "Editproject";
+    Layout = "~/Views/Shared/_LayoutCustomer.cshtml";
+}
+<div class="wrapper">
+    <div id="content">
+        <section class="forms-section">
+            <div class="outer-w3-agile mt-3">
+                <h4 class="tittle-w3-agileits mb-4">Update project</h4>
+                @using (Html.BeginForm("Editproject", "Customer", FormMethod.Post, new { enctype = "multipart/form-data" }))
+                {
+
+                    @Html.AntiForgeryToken()
+
+                    @Html.ValidationSummary(true)
+
+                    @Html.HiddenFor(model => model.PostID)
+                    @Html.HiddenFor(model => model.user_id)
+
+
+                    <div class="form-group form-inline">
+                        @Html.LabelFor(model => model.Title)
+
+                        @Html.TextBoxFor(model => model.Title, new { @class = "form-control", placeholder = "Title", type = "text" })
+
+                        @Html.ValidationMessageFor(model => model.Title, "", new { @class = "MessageError" })
+                    </div>
+                    <div class="form-group form-inline">
+                        @Html.LabelFor(model => model.Description)
+
+                        @Html.TextBoxFor(model => model.Description, new { @class = "form-control", placeholder = "Description", type = "text" })
+
+                        @Html.ValidationMessageFor(model => model.Description, "", new { @class = "MessageError" })
+
+                    </div>
+                    <div class="form-group form-inline">
+                        @Html.LabelFor(model => model.Start_Date)
+
+                        @Html.TextBoxFor(model => model.Start_Date, new { @class = "form-control", placeholder = "Description", type = "date" })
+
+                        @Html.ValidationMessageFor(model => model.Start_Date, "", new { @class = "MessageError" })
+
+                    </div>
+                    <div class="form-group form-inline">
+                        @Html.LabelFor(model => model.End_Date)
+
+                        @Html.TextBoxFor(model => model.End_Date, new { @class = "form-control", placeholder = "Description", type = "date" })
+
+                        @Html.ValidationMessageFor(model => model.End_Date, "", new { @class = "MessageError" })
+
+                    </div> <div class="form-group form-inline">
+                        @Html.LabelFor(model => model.Post_Status)
+
+                        @Html.TextBoxFor(model => model.Post_Status, new { @class = "form-control", placeholder = "Description", type = "text" })
+
+                        @Html.ValidationMessageFor(model => model.Post_Status, "", new { @class = "MessageError" })
+
+                    </div>
+
+
+                    <div class="col-md-12 form-inline">
+                        <div class="col-md-5"></div>
+                        <div class="col-md-1"><button type="submit" class="btn btn-primary">Update</button></div>
+                    </div>
+                }
+            </div>
+        </section>
+    </div>
+</div>
+

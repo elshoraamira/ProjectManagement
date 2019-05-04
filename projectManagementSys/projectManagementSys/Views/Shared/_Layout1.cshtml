@@ -1,0 +1,345 @@
+﻿@*@model projectManagementSys.Models.user*@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>@ViewBag.Title</title>
+    <!-- Meta tag Keywords -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="UTF-8" />
+    <meta name="keywords" content="Home" />
+    <script>
+        addEventListener("load", function () { setTimeout(hideURLbar, 0); }, false); function hideURLbar() { window.scrollTo(0, 1); }
+    </script>
+    <!-- //Meta tag Keywords -->
+    <!-- Custom-Files -->
+    <link rel="stylesheet" type="text/css" href="~/content/vendor/bootstrap/css/bootstrap.min.css">
+    <script src="~/Content/js/bootstrap.min.js"></script>
+    <script src="~/Content/js/jquery-2.2.3.min.js"></script>
+    <link rel="stylesheet" href="~/content/css/bootstrap.css" />
+    <!-- Bootstrap-Core-CSS -->
+    <link rel="stylesheet" href="~/content/css/style.css" type="text/css" media="all" />
+    <link rel="stylesheet" href="~/content/css/style (2).css" type="text/css" media="all" />
+    <link rel="stylesheet" href="~/content/css/slider.css" type="text/css" media="all" />
+    <!-- Style-CSS -->
+    <!-- font-awesome-icons -->
+    <link href="~/content/css/font-awesome.css" rel="stylesheet">
+    <!-- //font-awesome-icons -->
+    <!-- /Fonts -->
+    <link href="//fonts.googleapis.com/css?family=Poppins:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900" rel="stylesheet">
+    <!-- //Fonts -->
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="~/content/fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="~/content/vendor/animate/animate.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="~/content/vendor/css-hamburgers/hamburgers.min.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="~/content/vendor/select2/select2.min.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="~/content/css/util.css">
+    <link rel="stylesheet" type="text/css" href="~/content/css/main.css">
+</head>
+
+<body>
+    <!-- mian-content -->
+    <!-- header -->
+    <div class="main-w3layouts-header-sec" id="home">
+        <header>
+            <div class="container">
+                <div class="header d-lg-flex justify-content-between align-items-center">
+                    <div class="header-section">
+                        <h1>
+                            <a class="navbar-brand logo editContent" href="index.html">
+                                4 pm
+                            </a>
+                        </h1>
+                    </div>
+                    <div class="nav_section">
+                        <nav>
+                            <label for="drop" class="toggle mt-lg-0 mt-1"><span class="fa fa-bars" aria-hidden="true"></span></label>
+                            <input type="checkbox" id="drop" />
+                            <ul class="menu">
+                                <li class="active"> @Html.ActionLink("Home", "Index", "Home")</li>
+                                <li>
+                                    @Html.ActionLink("Profile","MyProfile","Home")
+                                </li>
+                                <li>
+                                    <a>
+                                        @Html.ActionLink("Logout","Logout","Home")
+                                    </a>
+                                </li>
+                            </ul>
+                        </nav>
+                    </div>
+
+                </div>
+            </div>
+        </header>
+        <!-- //header -->
+        <!-- banner -->
+        <section class="banner_w3pvt">
+            <div class="csslider infinity" id="slider1">
+                <input type="radio" name="slides" checked="checked" id="slides_1" />
+                <input type="radio" name="slides" id="slides_2" />
+                <input type="radio" name="slides" id="slides_3" />
+
+                <ul>
+                    <li>
+                        <div class="banner-top">
+                            <div class="overlay">
+                                <div class="container">
+                                    <div class="banner-info">
+                                        <div class="banner-w3layouts-inner text-center">
+                                            <h4>Welcome to your business zone</h4>
+                                            <h3>Strategy</h3>
+                                            <ul class="banner-w3layouts-top-icons text-center">
+                                                <li class="icons mx-auto">
+                                                    Connect With Us :
+                                                </li>
+                                                <li class="icons mx-auto">
+                                                    <a href="#" class="face-bk"><span class="fa fa-facebook" aria-hidden="true"></span></a>
+                                                </li>
+
+                                                <li class="icons mx-auto"><a href="#" class="twitter"><span class="fa fa-twitter" aria-hidden="true"></span></a></li>
+                                                <li class="icons mx-auto"><a href="#" class="dribble"><span class="fa fa-dribbble"></span></a></li>
+
+                                            </ul>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="banner-top1">
+                            <div class="overlay">
+                                <div class="container">
+                                    <div class="banner-info">
+                                        <div class="banner-w3layouts-inner text-center">
+                                            <h4>Welcome to your business zone</h4>
+                                            <h3>Guidance</h3>
+                                            <ul class="banner-w3layouts-top-icons text-center">
+                                                <li class="icons mx-auto">
+                                                    Connect With Us :
+                                                </li>
+                                                <li class="icons mx-auto">
+                                                    <a href="#" class="face-bk"><span class="fa fa-facebook" aria-hidden="true"></span></a>
+                                                </li>
+
+                                                <li class="icons mx-auto"><a href="#" class="twitter"><span class="fa fa-twitter" aria-hidden="true"></span></a></li>
+                                                <li class="icons mx-auto"><a href="#" class="dribble"><span class="fa fa-dribbble"></span></a></li>
+
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="banner-top2">
+                            <div class="overlay">
+                                <div class="container">
+                                    <div class="banner-info">
+                                        <div class="banner-w3layouts-inner text-center">
+                                            <h4>Welcome to your business zone</h4>
+                                            <h3>Progress</h3>
+
+                                            <ul class="banner-w3layouts-top-icons text-center">
+                                                <li class="icons mx-auto">
+                                                    Connect With Us :
+                                                </li>
+                                                <li class="icons mx-auto">
+                                                    <a href="#" class="face-bk"><span class="fa fa-facebook" aria-hidden="true"></span></a>
+                                                </li>
+
+                                                <li class="icons mx-auto"><a href="#" class="twitter"><span class="fa fa-twitter" aria-hidden="true"></span></a></li>
+                                                <li class="icons mx-auto"><a href="#" class="dribble"><span class="fa fa-dribbble"></span></a></li>
+
+                                            </ul>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+
+                </ul>
+                <div class="arrows">
+                    <label for="slides_1"></label>
+                    <label for="slides_2"></label>
+                    <label for="slides_3"></label>
+
+                </div>
+            </div>
+        </section>
+        <!-- //slider -->
+    </div>
+    <div>
+        @RenderBody();
+    </div>
+
+    <!-- footer -->
+    <footer class="footer-content py-5">
+
+        <div class="row footer-top-inner-w3layouts">
+            <div class="col-lg-3 col-md-6 mt-lg-0 mt-4">
+                <div class="footer-lavi">
+                    <h3 class="mb-3 lavi_title">Links</h3>
+                    <hr>
+                    <ul class="list-info-lavi">
+                        <li>
+                            <a href="about.html">
+                                <span class="fa fa-angle-double-right" aria-hidden="true"></span>
+                                Our Mission
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <span class="fa fa-angle-double-right" aria-hidden="true"></span>
+                                Latest Posts
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <span class="fa fa-angle-double-right" aria-hidden="true"></span>
+                                Explore
+                            </a>
+                        </li>
+                        <li>
+                            <a href="contact.html">
+                                <span class="fa fa-angle-double-right" aria-hidden="true"></span>
+                                Find us
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <span class="fa fa-angle-double-right" aria-hidden="true"></span>
+                                Privacy Policy
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6 mt-lg-0 mt-4">
+                <div class="footer-lavi">
+                    <h3 class="mb-3 lavi_title">Navigation</h3>
+                    <hr>
+                    <ul class="list-info-lavi">
+                        <li>
+                            <a href="index.html">
+                                <span class="fa fa-angle-double-right" aria-hidden="true"></span>
+                                Home
+                            </a>
+                        </li>
+                        <li>
+                            <a href="about.html">
+                                <span class="fa fa-angle-double-right" aria-hidden="true"></span>
+                                About Us
+                            </a>
+                        </li>
+                        <li>
+                            <a href="single.html">
+                                <span class="fa fa-angle-double-right" aria-hidden="true"></span>
+                                Single Page
+                            </a>
+                        </li>
+                        <li>
+                            <a href="about.html">
+                                <span class="fa fa-angle-double-right" aria-hidden="true"></span>
+                                Team
+                            </a>
+                        </li>
+                        <li>
+                            <a href="contact.html">
+                                <span class="fa fa-angle-double-right" aria-hidden="true"></span>
+                                Contact Us
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6 mt-lg-0 mt-4">
+                <div class="footer-lavi">
+                    <h3 class="mb-3 lavi_title">Customer Care</h3>
+                    <hr>
+                    <ul class="list-info-lavi">
+                        <li>
+                            <a href="about.html">
+                                <span class="fa fa-angle-double-right" aria-hidden="true"></span>
+                                Our Mission
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <span class="fa fa-angle-double-right" aria-hidden="true"></span>
+                                Latest Posts
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <span class="fa fa-angle-double-right" aria-hidden="true"></span>
+
+                                Explore
+                            </a>
+                        </li>
+                        <li>
+                            <a href="contact.html">
+                                <span class="fa fa-angle-double-right" aria-hidden="true"></span>
+                                Find us
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <span class="fa fa-angle-double-right" aria-hidden="true"></span>
+                                Privacy Policy
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6 mt-lg-0 mt-4">
+                <div class="footer-lavi">
+                    <h3 class="mb-3 lavi_title">Contact Us</h3>
+                    <hr>
+                    <div class="last-w3layouts-contact">
+                        <p>
+                            <a href="mailto:example@email.com">info@example.com</a>
+                        </p>
+                    </div>
+                    <div class="last-w3layouts-contact my-2">
+                        <p>+ 456 123 7890</p>
+                    </div>
+                    <div class="last-w3layouts-contact">
+                        <p>
+                            + 90 nsequursu dsdesdc,
+                            <br>xxx Honey Street 049436.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <!-- //footer bottom -->
+    </footer>
+    <!-- //footer -->
+    <div class="copy-right">
+        <div class="container">
+            <div class="row">
+                <div class="move-top text-right col-md-1">
+                    <a href="#home" class="move-top"> <span class="fa fa-angle-up  mb-3" aria-hidden="true"></span></a>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
+
+
+
+

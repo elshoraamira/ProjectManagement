@@ -1,0 +1,105 @@
+﻿@model IEnumerable<projectManagementSys.Models.project>
+@{
+    ViewBag.Title = "Detailsproject";
+    Layout = "~/Views/Shared/_LayoutCustomer.cshtml";
+}
+
+<style>
+    th {
+        text-align: center;
+    }
+</style>
+<div class="wrapper">
+    <div id="content">
+        <h2 class="main-title-w3layouts mb-2 text-center">Users Details</h2>
+        <div class="col-md-12 form-inline">
+            @Html.ActionLink("Add project", "Addproject", null, new { @class = "btn btn-primary" })
+            @*<button type="submit" class="btn btn-primary">Add user</button>*@
+        </div>
+        <section class="tables-section">
+            <div class="outer-w3-agile mt-3">
+                <div class="container-fluid">
+                    <div class="row">
+                        <table class="table col-xl mr-xl-3">
+                            <tbody>
+                            <thead>
+                                <tr>
+                                    <th>
+
+                                        @Html.DisplayNameFor(model => model.Title)
+
+                                    </th>
+
+                                    <th>
+
+                                        @Html.DisplayNameFor(model => model.Description)
+
+                                    </th>
+                                    <th>
+
+                                        @Html.DisplayNameFor(model => model.Start_Date)
+
+                                    </th>
+                                    <th>
+
+                                        @Html.DisplayNameFor(model => model.End_Date)
+
+                                    </th>
+                                    <th>
+
+                                        @Html.DisplayNameFor(model => model.Post_Status)
+
+                                    </th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var item in Model)
+                                {
+                                    //  if (item.user_Type.Equals(5) || item.user_Type.Equals(2) || item.user_Type.Equals(3) || item.user_Type.Equals(4) || item.user_Type.Equals(1))
+                                    // {
+                                    <tr class="table-primary">
+
+                                        <td>
+
+                                            @Html.DisplayFor(modelItem => item.Title, new { @class = "tableStyle" })
+
+                                        </td>
+
+                                        <td>
+
+                                            @Html.DisplayFor(modelItem => item.Description, new { @class = "tableStyle" })
+
+                                        </td>
+
+                                        <td>
+
+                                            @Html.DisplayFor(modelItem => item.Start_Date, new { @class = "tableStyle" })
+
+                                        </td>
+
+                                        <td>
+
+                                            @Html.DisplayFor(modelItem => item.End_Date, new { @class = "tableStyle" })
+
+                                        </td>
+                                        <td>
+
+                                            @Html.DisplayFor(modelItem => item.Post_Status, new { @class = "tableStyle" })
+
+                                        </td>
+                                        <td nowrap>
+
+                                            @Html.ActionLink("Delete", "Deleteproject", new { id = item.PostID }, new { @class = "btn btn-primary" })
+                                            @Html.ActionLink("Update", "Editproject", new { id = item.PostID }, new { @class = "btn btn-primary" })
+                                        </td>
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+</div>
+

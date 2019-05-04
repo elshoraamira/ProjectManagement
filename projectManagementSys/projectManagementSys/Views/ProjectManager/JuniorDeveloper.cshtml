@@ -1,0 +1,73 @@
+﻿@model IEnumerable<projectManagementSys.Models.user>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_LayoutPM.cshtml";
+}
+
+<h2>Team Leaders</h2>
+
+<div class="blank-page-content">
+    <div class="row">
+        <div class="col-12">
+            <div class="card">
+                <div class="card-body p-0">
+                    <div class="table-responsive">
+                        <table class="table table-striped">
+                            <tbody>
+                                <tr>
+
+                                    <th>
+                                        @Html.DisplayNameFor(model => model.username)
+                                    </th>
+                                    <th>
+                                        @Html.DisplayNameFor(model => model.Email)
+                                    </th>
+                                    <th>
+                                        @Html.DisplayNameFor(model => model.mobile)
+                                    </th>
+
+                                    <th>
+                                        @Html.DisplayNameFor(model => model.description)
+                                    </th>
+
+                                    <th>
+                                        @Html.DisplayNameFor(model => model.userType.usertype1)
+                                    </th>
+                                    <th></th>
+                                </tr>
+
+                                @foreach (var item in Model)
+                                {
+                                    <tr>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.username)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.Email)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.mobile)
+                                        </td>
+
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.description)
+                                        </td>
+
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.userType.usertype1)
+                                        </td>
+                                        <td>
+                                            <a href="@Url.Action("SendRequestJD","ProjectManager",new { id = item.Id})" class="btn btn-primary">Send Request</a>
+
+                                        </td>
+                                    </tr>
+                                }
+
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

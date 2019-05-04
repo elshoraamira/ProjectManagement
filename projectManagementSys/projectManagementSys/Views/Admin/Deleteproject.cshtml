@@ -1,0 +1,43 @@
+﻿@model projectManagementSys.Models.project
+@{
+    ViewBag.Title = "Deleteproject";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="outer-w3-agile col-xl mt-3">
+            <div class="profile-main-w3ls">
+                <div class="profile-pic wthree">
+                    <h3>
+                        @Html.DisplayFor(model => model.Title, new { @class = "tableStyle" })
+                    </h3>
+                    
+                </div>
+                <div class="w3-message">
+                    <h5>Description</h5>
+                    <p>
+                        @Html.DisplayFor(model => model.Description, new { @class = "tableStyle" })
+
+                    </p>
+                   
+                </div>
+            </div>
+            @using (Html.BeginForm())
+            {
+                @Html.AntiForgeryToken()
+
+                <div class="col-md-12 form-inline">
+                    <div class="col-md-5"></div>
+                    <div class="col-md-1">
+                        <button type="submit" class="btn btn-primary" value="Delete">Delete</button>
+                    </div>
+                </div>
+
+            }
+        </div>
+    </div>
+</div>
+
+
+

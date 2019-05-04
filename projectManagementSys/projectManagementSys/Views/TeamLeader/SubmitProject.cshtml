@@ -1,0 +1,38 @@
+﻿@model projectManagementSys.Models.TLRequest
+@{
+    ViewBag.Title = "SubmitProject";
+    Layout = "~/Views/Shared/_LayoutTL.cshtml";
+}
+
+<section class="addView">
+
+    <div class="container">
+        <h2 class="main-title-w3layouts mb-2 text-center">Submit Request</h2>
+        <div class="line line2"></div>
+        <div class="container-fluid">
+            <div class="row">
+                @using (Html.BeginForm("SubmitProject", "TeamLeader", FormMethod.Post, new { enctype = "multipart/form-data" }))
+                {
+
+                    @Html.AntiForgeryToken()
+
+                    @Html.ValidationSummary(true)
+
+                  // @Html.HiddenFor(model => model.User_ID)
+
+                <div class="form-group form-inline">
+                    @Html.DropDownList("Project_ID", ViewBag.Projects as SelectList, "Select Project")
+                </div>
+                    <div class="col-md-12 form-inline">
+                        <div class="col-md-5"></div>
+                        <div class="col-md-1"><button type="submit" class="btn btn-primary">Submit</button></div>
+                    </div>
+                }
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>

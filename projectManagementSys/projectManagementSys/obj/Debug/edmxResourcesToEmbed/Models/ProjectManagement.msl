@@ -1,0 +1,172 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="projectMSysModelStoreContainer" CdmEntityContainer="projectMSysEntities">
+    <EntitySetMapping Name="ApprovedProjects">
+      <EntityTypeMapping TypeName="projectMSysModel.ApprovedProject">
+        <MappingFragment StoreEntitySet="ApprovedProject">
+          <ScalarProperty Name="ApprovedProjectID" ColumnName="ApprovedProjectID" />
+          <ScalarProperty Name="project_id" ColumnName="project_id" />
+          <ScalarProperty Name="ProjectMang_id" ColumnName="ProjectMang_id" />
+          <ScalarProperty Name="Cust_id" ColumnName="Cust_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="projects">
+      <EntityTypeMapping TypeName="projectMSysModel.project">
+        <MappingFragment StoreEntitySet="projects">
+          <ScalarProperty Name="Avilable" ColumnName="Avilable" />
+          <ScalarProperty Name="PostID" ColumnName="PostID" />
+          <ScalarProperty Name="Title" ColumnName="Title" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Start_Date" ColumnName="Start_Date" />
+          <ScalarProperty Name="End_Date" ColumnName="End_Date" />
+          <ScalarProperty Name="Post_Status" ColumnName="Post_Status" />
+          <ScalarProperty Name="user_id" ColumnName="user_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Requests">
+      <EntityTypeMapping TypeName="projectMSysModel.Request">
+        <MappingFragment StoreEntitySet="Requests">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="PM_ID" ColumnName="PM_ID" />
+          <ScalarProperty Name="Project_ID" ColumnName="Project_ID" />
+          <ScalarProperty Name="R_status" ColumnName="R_status" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="users">
+      <EntityTypeMapping TypeName="projectMSysModel.user">
+        <MappingFragment StoreEntitySet="users">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="FName" ColumnName="FName" />
+          <ScalarProperty Name="LName" ColumnName="LName" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="mobile" ColumnName="mobile" />
+          <ScalarProperty Name="password" ColumnName="password" />
+          <ScalarProperty Name="description" ColumnName="description" />
+          <ScalarProperty Name="user_Type" ColumnName="user_Type" />
+          <ScalarProperty Name="username" ColumnName="username" />
+          <ScalarProperty Name="image" ColumnName="image" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="userTypes">
+      <EntityTypeMapping TypeName="projectMSysModel.userType">
+        <MappingFragment StoreEntitySet="userType">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="usertype1" ColumnName="usertype" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="PM_PROJ" FunctionName="projectMSysModel.Store.PM_PROJ">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="projectMSysModel.PM_PROJ_Result">
+          <ScalarProperty Name="Title" ColumnName="Title" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Start_Date" ColumnName="Start_Date" />
+          <ScalarProperty Name="End_Date" ColumnName="End_Date" />
+          <ScalarProperty Name="username" ColumnName="username" />
+          <ScalarProperty Name="Post_Status" ColumnName="Post_Status" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="PostID" ColumnName="PostID" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="PM_REQ" FunctionName="projectMSysModel.Store.PM_REQ">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="projectMSysModel.PM_REQ_Result">
+          <ScalarProperty Name="PostID" ColumnName="PostID" />
+          <ScalarProperty Name="Title" ColumnName="Title" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Start_Date" ColumnName="Start_Date" />
+          <ScalarProperty Name="End_Date" ColumnName="End_Date" />
+          <ScalarProperty Name="Post_Status" ColumnName="Post_Status" />
+          <ScalarProperty Name="PM_ID" ColumnName="PM_ID" />
+          <ScalarProperty Name="R_status" ColumnName="R_status" />
+          <ScalarProperty Name="username" ColumnName="username" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <EntitySetMapping Name="Teams">
+      <EntityTypeMapping TypeName="projectMSysModel.Team">
+        <MappingFragment StoreEntitySet="Team">
+          <ScalarProperty Name="Post_ID" ColumnName="Post_ID" />
+          <ScalarProperty Name="JD_ID" ColumnName="JD_ID" />
+          <ScalarProperty Name="TL_ID" ColumnName="TL_ID" />
+          <ScalarProperty Name="PM_ID" ColumnName="PM_ID" />
+          <ScalarProperty Name="Team_Id" ColumnName="Team_Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="JDRequests">
+      <EntityTypeMapping TypeName="projectMSysModel.JDRequest">
+        <MappingFragment StoreEntitySet="JDRequests">
+          <ScalarProperty Name="Rj_status" ColumnName="Rj_status" />
+          <ScalarProperty Name="proj_ID" ColumnName="proj_ID" />
+          <ScalarProperty Name="User_ID" ColumnName="User_ID" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TLRequests">
+      <EntityTypeMapping TypeName="projectMSysModel.TLRequest">
+        <MappingFragment StoreEntitySet="TLRequests">
+          <ScalarProperty Name="R_Status" ColumnName="R_Status" />
+          <ScalarProperty Name="Project_ID" ColumnName="Project_ID" />
+          <ScalarProperty Name="ProjM_ID" ColumnName="ProjM_ID" />
+          <ScalarProperty Name="TL_ID" ColumnName="TL_ID" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="JD_ReQ" FunctionName="projectMSysModel.Store.JD_ReQ">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="projectMSysModel.JD_ReQ_Result">
+          <ScalarProperty Name="PostID" ColumnName="PostID" />
+          <ScalarProperty Name="Title" ColumnName="Title" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Start_Date" ColumnName="Start_Date" />
+          <ScalarProperty Name="End_Date" ColumnName="End_Date" />
+          <ScalarProperty Name="Post_Status" ColumnName="Post_Status" />
+          <ScalarProperty Name="username" ColumnName="username" />
+          <ScalarProperty Name="User_ID" ColumnName="User_ID" />
+          <ScalarProperty Name="proj_ID" ColumnName="proj_ID" />
+          <ScalarProperty Name="Rj_status" ColumnName="Rj_status" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="submitJD" FunctionName="projectMSysModel.Store.submitJD">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="projectMSysModel.submitJD_Result">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="description" ColumnName="description" />
+          <ScalarProperty Name="user_Type" ColumnName="user_Type" />
+          <ScalarProperty Name="username" ColumnName="username" />
+          <ScalarProperty Name="PostID" ColumnName="PostID" />
+          <ScalarProperty Name="Title" ColumnName="Title" />
+          <ScalarProperty Name="Post_Status" ColumnName="Post_Status" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="TL_ReQ" FunctionName="projectMSysModel.Store.TL_ReQ">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="projectMSysModel.TL_ReQ_Result">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="TL_ID" ColumnName="TL_ID" />
+          <ScalarProperty Name="R_Status" ColumnName="R_Status" />
+          <ScalarProperty Name="ProjM_ID" ColumnName="ProjM_ID" />
+          <ScalarProperty Name="PostID" ColumnName="PostID" />
+          <ScalarProperty Name="Title" ColumnName="Title" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Start_Date" ColumnName="Start_Date" />
+          <ScalarProperty Name="End_Date" ColumnName="End_Date" />
+          <ScalarProperty Name="Post_Status" ColumnName="Post_Status" />
+          <ScalarProperty Name="username" ColumnName="username" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+  </EntityContainerMapping>
+</Mapping>

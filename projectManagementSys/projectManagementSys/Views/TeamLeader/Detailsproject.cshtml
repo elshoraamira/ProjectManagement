@@ -1,0 +1,85 @@
+﻿@model IEnumerable<projectManagementSys.Models.TLRequest>
+@{
+    ViewBag.Title = "Detailsproject";
+    Layout = "~/Views/Shared/_LayoutTL.cshtml";
+}
+
+<style>
+    th {
+        text-align: center;
+    }
+</style>
+<div class="wrapper">
+    <div id="content">
+        <h2 class="main-title-w3layouts mb-2 text-center">ALL Projects</h2>
+        <section class="tables-section">
+            <div class="outer-w3-agile mt-3">
+                <div class="container-fluid">
+                    <div class="row">
+                        <table class="table col-xl mr-xl-3">
+                            <tbody>
+                            <thead>
+                                <tr>
+                                    <th>
+
+                                        @Html.DisplayNameFor(model => model.project.Title)
+
+                                    </th>
+
+                                    <th>
+
+                                        @Html.DisplayNameFor(model => model.project.Description)
+
+                                    </th>
+                                    <th>
+
+                                        @Html.DisplayNameFor(model => model.R_Status)
+
+                                    </th>
+                                    <th>
+
+
+                                    </th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var item in Model)
+                                {
+                                    //  if (item.user_Type.Equals(5) || item.user_Type.Equals(2) || item.user_Type.Equals(3) || item.user_Type.Equals(4) || item.user_Type.Equals(1))
+                                    // {
+                                    <tr class="table-primary">
+
+                                        <td>
+
+                                            @Html.DisplayFor(modelItem => item.project.Title, new { @class = "tableStyle" })
+
+                                        </td>
+
+                                        <td>
+
+                                            @Html.DisplayFor(modelItem => item.project.Description, new { @class = "tableStyle" })
+
+                                        </td>
+
+                                        <td>
+
+                                            @Html.DisplayFor(modelItem => item.R_Status, new { @class = "tableStyle" })
+
+                                        </td>
+                                        <td nowrap>
+                                            @if (item.R_Status == 1)
+                                            {
+                                             @Html.ActionLink("Delete", "Deleteproject", new { id = item.Id }, new { @class = "btn btn-primary" })
+                                             }
+                                        </td>
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+</div>
+

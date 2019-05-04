@@ -1,0 +1,49 @@
+﻿@model projectManagementSys.Models.project
+@{
+    ViewBag.Title = "SubmitProject";
+    Layout = "~/Views/Shared/_Layout1.cshtml";
+}
+<section class="addView">
+
+    <div class="container">
+        <h2 class="main-title-w3layouts mb-2 text-center">Submit Request</h2>
+        <div class="line line2"></div>
+        <div class="container-fluid">
+            <div class="row">
+                @using (Html.BeginForm("SubmitProject", "ProjectManager", FormMethod.Post, new { enctype = "multipart/form-data" }))
+                {
+
+                    @Html.AntiForgeryToken()
+
+                    @Html.ValidationSummary(true)
+
+                    @Html.HiddenFor(model => model.PostID)
+                    @Html.HiddenFor(model => model.user_id)
+                    <div class="form-group form-inline">
+                        @Html.LabelFor(model => model.Title)
+
+                        @Html.TextBoxFor(model => model.Title, new { @class = "form-control", placeholder = "Title", type = "text" })
+
+                        @Html.ValidationMessageFor(model => model.Title, "", new { @class = "MessageError" })
+                    </div>
+                    <div class="form-group form-inline">
+                        @Html.LabelFor(model => model.Description)
+
+                        @Html.TextBoxFor(model => model.Description, new { @class = "form-control", placeholder = "Description", type = "text" })
+
+                        @Html.ValidationMessageFor(model => model.Description, "", new { @class = "MessageError" })
+
+                    </div>
+                    <div class="col-md-12 form-inline">
+                        <div class="col-md-5"></div>
+                        <div class="col-md-1"><button type="submit" class="btn btn-primary">Submit</button></div>
+                    </div>
+                }
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>

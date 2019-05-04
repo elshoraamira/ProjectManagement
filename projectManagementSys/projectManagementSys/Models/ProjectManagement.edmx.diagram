@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="8e3a56c5641d49e99ce1e0317c21f2cd" Name="Diagram1">
+        <EntityTypeShape EntityType="projectMSysModel.ApprovedProject" Width="1.5" PointX="7.5" PointY="4.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="projectMSysModel.project" Width="1.5" PointX="5.25" PointY="5.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="projectMSysModel.Request" Width="1.5" PointX="7.5" PointY="7.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="projectMSysModel.user" Width="1.5" PointX="3" PointY="2.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="projectMSysModel.userType" Width="1.5" PointX="0.75" PointY="3.375" IsExpanded="true" />
+        <AssociationConnector Association="projectMSysModel.FK__ApprovedP__Cust___6B24EA82" ManuallyRouted="false" />
+        <AssociationConnector Association="projectMSysModel.FK__ApprovedP__proje__693CA210" ManuallyRouted="false" />
+        <AssociationConnector Association="projectMSysModel.FK__ApprovedP__Proje__6A30C649" ManuallyRouted="false" />
+        <AssociationConnector Association="projectMSysModel.FK__projects__user_i__2A4B4B5E" ManuallyRouted="false" />
+        <AssociationConnector Association="projectMSysModel.FK__Requests__Projec__70DDC3D8" ManuallyRouted="false" />
+        <AssociationConnector Association="projectMSysModel.FK__Requests__PM_ID__6477ECF3" ManuallyRouted="false" />
+        <AssociationConnector Association="projectMSysModel.FK__users__user_Type__619B8048" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="projectMSysModel.Team" Width="1.5" PointX="7.5" PointY="11.25" />
+        <AssociationConnector Association="projectMSysModel.FK_projects_Team" />
+        <EntityTypeShape EntityType="projectMSysModel.JDRequest" Width="1.5" PointX="10.5" PointY="7.625" />
+        <EntityTypeShape EntityType="projectMSysModel.TLRequest" Width="1.5" PointX="10.5" PointY="4.625" />
+        <AssociationConnector Association="projectMSysModel.FK__JDRequest__proj___02084FDA" />
+        <AssociationConnector Association="projectMSysModel.FK__JDRequest__User___01142BA1" />
+        <AssociationConnector Association="projectMSysModel.FK__TLRequest__Proje__787EE5A0" />
+        <AssociationConnector Association="projectMSysModel.FK__TLRequest__TL_ID__778AC167" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

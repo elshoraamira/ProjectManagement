@@ -1,0 +1,136 @@
+﻿@model projectManagementSys.Models.user
+<link href="~/Content/Form/css/main.css" rel="stylesheet" />
+<link href="~/Content/Form/css/util.css" rel="stylesheet" />
+<link href="~/Content/Form/vendor/select2/select2.min.css" rel="stylesheet" />
+<link rel="stylesheet" type="text/css" href="~/content/Form/vendor/noui/nouislider.min.css">
+
+@{
+    ViewBag.Title = "Adduser";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+
+}
+<style>
+    a {
+        font-family: 'Poiret One', cursive;
+        font-weight: 700;
+        color: white;
+        font-size: 1.3em;
+        letter-spacing: 3px;
+    }
+
+    #sidebar ul li a {
+        font-family:'Open Sans', sans-serif;
+        padding: 16px 10px;
+        letter-spacing: 0.6px;
+        display: block;
+        color: #fff;
+    }
+
+    .sidebar-header h1 {
+        /*font-size: 2.3em;*/
+        font-family: 'Open Sans', sans-serif ;
+        letter-spacing: 3px;
+        color: #fff;
+        text-shadow: 2px 2px 3px #39393a;
+    }
+</style>
+<div class="container-contact100">
+    <div class="wrap-contact100">
+        @if (ViewBag.Message != null)
+        {
+            <h3 class="LinkClass center-block">@ViewBag.Message</h3>
+        }
+
+        @using (Html.BeginForm("Adduser", "Admin", FormMethod.Post, new { enctype = "multipart/form-data" }))
+        {
+            <form class="contact100-form validate-form">
+
+                <h2 class="main-title-w3layouts mb-2 text-center">Add User</h2>
+                <div class="wrap-input100 validate-input bg1">
+                    <span class="label-input100">
+                        @Html.LabelFor(model => model.FName)
+                    </span>
+                    @Html.TextBoxFor(model => model.FName, new { @class = "input100", placeholder = "First Name", type = "text" })
+
+                    @Html.ValidationMessageFor(model => model.FName, "", new { @class = "MessageError" })
+                </div>
+
+                <div class="wrap-input100 validate-input bg1 rs1-wrap-input100">
+                    <span class="label-input100">
+                        @Html.LabelFor(model => model.LName)
+                    </span>
+                    @Html.TextBoxFor(model => model.LName, new { @class = "input100", placeholder = "Last Name", type = "text" })
+
+                    @Html.ValidationMessageFor(model => model.LName, "", new { @class = "MessageError" })
+                </div>
+
+                <div class="wrap-input100 validate-input bg1 rs1-wrap-input100">
+                    <span class="label-input100">
+                        @Html.LabelFor(model => model.Email)
+                    </span>
+                    @Html.TextBoxFor(model => model.Email, new { @class = "input100", placeholder = "Email", type = "Email" })
+
+                    @Html.ValidationMessageFor(model => model.Email, "", new { @class = "MessageError" })
+                </div>
+
+                <div class="wrap-input100 validate-input bg1 rs1-wrap-input100">
+                    <span class="label-input100">
+                        @Html.LabelFor(model => model.mobile)
+                    </span>
+                    @Html.TextBoxFor(model => model.mobile, new { @class = "input100", placeholder = "Mobile", type = "text" })
+
+                    @Html.ValidationMessageFor(model => model.mobile, "", new { @class = "MessageError" })
+                </div>
+
+                <div class="wrap-input100 validate-input bg1 rs1-wrap-input100">
+                    <span class="label-input100">
+                        @Html.LabelFor(model => model.password)
+                    </span>
+                    @Html.TextBoxFor(model => model.password, new { @class = "input100", placeholder = "Password", type = "password" })
+
+                    @Html.ValidationMessageFor(model => model.password, "", new { @class = "MessageError" })
+                </div>
+                <div class="wrap-input100 validate-input bg1 rs1-wrap-input100">
+                    <span class="label-input100">
+                        @Html.LabelFor(model => model.description)
+                    </span>
+                    @Html.TextBoxFor(model => model.description, new { @class = "input100", placeholder = "Description", type = "text" })
+
+                    @Html.ValidationMessageFor(model => model.description, "", new { @class = "MessageError" })
+                </div>
+                <div class="wrap-input100 input100-select bg1">
+                    <span class="label-input100">
+                        @Html.LabelFor(model => model.userType)
+                    </span>
+                    <div>
+                            @Html.DropDownList("user_Type", EnumHelper.GetSelectList(typeof(projectManagementSys.App_Code.UsersNameMapping)), "User Type", new { @class = "js-select2" , @name="service" })
+                            @Html.ValidationMessageFor(model => model.userType, "", new { @class = "MessageError" })
+                    </div>
+                </div>
+                <div class="wrap-input100 validate-input bg1 rs1-alert-validate">
+                    <span>
+                        @Html.LabelFor(model => model.username)
+                    </span>
+                    @Html.TextBoxFor(model => model.username, new { @class = "input100", placeholder = "Username", type = "text" })
+
+                    @Html.ValidationMessageFor(model => model.username, "", new { @class = "MessageError" })
+                </div>
+
+                <div class="wrap-input100 validate-input bg1 rs1-alert-validate">
+                    <span>
+                        @Html.LabelFor(model => model.image)
+                    </span>
+                    @Html.TextBoxFor(model => model.File, new { @type = "file", @name = "image", @required = "true" })
+
+                    @Html.ValidationMessageFor(model => model.File, "", new { @class = "MessageError" })
+                </div>
+                <div class="container-contact100-form-btn">
+                    <button class="contact100-form-btn" type="submit">
+                        Add user
+                        <i class="fa fa-long-arrow-right m-l-7" aria-hidden="true"></i>
+                    </button>
+                </div>
+            </form>
+        }
+        </div>
+</div>

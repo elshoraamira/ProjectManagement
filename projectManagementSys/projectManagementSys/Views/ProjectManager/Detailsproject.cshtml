@@ -1,0 +1,43 @@
+﻿@model IEnumerable<projectManagementSys.Models.project>
+<table class="table col-xl mr-xl-3">
+    <tbody>
+    <thead>
+        <tr>
+            <th>
+
+                @Html.DisplayNameFor(model => model.Title)
+
+            </th>
+
+            <th>
+
+                @Html.DisplayNameFor(model => model.Description)
+
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr class="table-primary">
+
+                <td>
+
+                    @Html.DisplayFor(modelItem => item.Title, new { @class = "tableStyle" })
+
+                </td>
+
+                <td>
+
+                    @Html.DisplayFor(modelItem => item.Description, new { @class = "tableStyle" })
+
+                </td>
+                <td nowrap>
+                    @if(item.Post_Status == 0){
+                    @Html.ActionLink("Submit", "SubmitProject", new { id = item.PostID }, new { @class = "btn btn-primary" })
+                }
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

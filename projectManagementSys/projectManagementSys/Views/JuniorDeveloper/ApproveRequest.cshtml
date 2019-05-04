@@ -1,0 +1,71 @@
+﻿@model projectManagementSys.Models.JDRequest
+@{
+                /**/
+
+                ViewBag.Title = "ApproveRequest";
+                Layout = "~/Views/Shared/_LayoutJD.cshtml";
+}
+<section class="addView">
+
+    <div class="container">
+        <h2 class="main-title-w3layouts mb-2 text-center">Approve Request</h2>
+        <div class="line line2"></div>
+        <div class="container-fluid">
+            <div class="row">
+
+
+
+                <div class="form-group">
+
+                    @Html.LabelFor(model => model.project.Title)
+
+                    <span>
+
+                        @Html.DisplayFor(model => model.project.Title)
+
+                    </span>
+
+                </div>
+
+                <div class="form-group">
+
+                    @Html.LabelFor(model => model.project.End_Date)
+
+                    <span>
+
+                        @Html.DisplayFor(model => model.project.End_Date)
+
+                    </span>
+
+                </div>
+
+                <div class="form-group">
+
+                    @Html.LabelFor(model => model.user.username)
+
+                    <span>
+
+                        @Html.DisplayFor(model => model.user.username)
+
+                    </span>
+
+                </div>
+
+
+                @using (Html.BeginForm())
+                {
+                    @Html.AntiForgeryToken()
+
+                    @Html.HiddenFor(model => model.proj_ID)
+                    @Html.HiddenFor(model => model.User_ID)
+                    <input type="submit" value="Approve" class="btn center-block hi" />
+                }
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+

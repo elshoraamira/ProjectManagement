@@ -1,0 +1,89 @@
+﻿@model projectManagementSys.Models.project
+<link href="~/Content/Form/css/main.css" rel="stylesheet" />
+<link href="~/Content/Form/css/util.css" rel="stylesheet" />
+<link href="~/Content/Form/vendor/select2/select2.min.css" rel="stylesheet" />
+<link rel="stylesheet" type="text/css" href="~/content/Form/vendor/noui/nouislider.min.css">
+@{
+    ViewBag.Title = "Addproject";
+    Layout = "~/Views/Shared/_LayoutCustomer.cshtml";
+}
+<style>
+    a {
+        font-family: 'Poiret One', cursive;
+        font-weight: 700;
+        color: white;
+        font-size: 1.3em;
+        letter-spacing: 3px;
+    }
+
+    #sidebar ul li a {
+        font-family: 'Open Sans', sans-serif;
+        padding: 16px 10px;
+        letter-spacing: 0.6px;
+        display: block;
+        color: #fff;
+    }
+
+    .sidebar-header h1 {
+        /*font-size: 2.3em;*/
+        font-family: 'Open Sans', sans-serif;
+        letter-spacing: 3px;
+        color: #fff;
+        text-shadow: 2px 2px 3px #39393a;
+    }
+</style>
+<div class="container-contact100">
+    <div class="wrap-contact100">
+        @if (ViewBag.Message != null)
+        {
+            <h3 class="LinkClass center-block">@ViewBag.Message</h3>
+        }
+
+        @using (Html.BeginForm("Addproject", "Customer", FormMethod.Post, new { enctype = "multipart/form-data" }))
+        {
+            <form class="contact100-form validate-form">
+
+                <h2 class="main-title-w3layouts mb-2 text-center">Add Project</h2>
+                <div class="wrap-input100 validate-input bg1 rs1-wrap-input100">
+                    <span class="label-input100">
+                        @Html.LabelFor(model => model.Title)
+                    </span>
+                    @Html.TextBoxFor(model => model.Title, new { @class = "input100", placeholder = "Title", type = "text" })
+
+                    @Html.ValidationMessageFor(model => model.Title, "", new { @class = "MessageError" })
+                </div>
+
+                <div class="wrap-input100 validate-input bg1 rs1-alert-validate">
+                    <span>
+                        @Html.LabelFor(model => model.Description)
+                    </span>
+                    @Html.TextBoxFor(model => model.Description, new { @class = "input100", placeholder = "Your Project Description", type = "text" })
+
+                    @Html.ValidationMessageFor(model => model.Description, "", new { @class = "MessageError" })
+                </div>
+                <div class="wrap-input100 validate-input bg1 rs1-alert-validate">
+                    <span>
+                        @Html.LabelFor(model => model.Start_Date)
+                    </span>
+                    @Html.TextBoxFor(model => model.Start_Date, new { @class = "input100 form-contorl", placeholder = "DD/MM/YYYY", type = "date" })
+
+                    @Html.ValidationMessageFor(model => model.Start_Date, "", new { @class = "MessageError" })
+                </div>
+                <div class="wrap-input100 validate-input bg1 rs1-alert-validate">
+                    <span>
+                        @Html.LabelFor(model => model.End_Date)
+                    </span>
+                    @Html.TextBoxFor(model => model.End_Date, new { @class = "input100 form-contorl", placeholder = "DD/MM/YYYY", type = "date" })
+
+                    @Html.ValidationMessageFor(model => model.End_Date, "", new { @class = "MessageError" })
+                </div>
+                <div class="container-contact100-form-btn">
+                    <button class="contact100-form-btn" type="submit">
+                        Add Project
+                        <i class="fa fa-long-arrow-right m-l-7" aria-hidden="true"></i>
+                    </button>
+                </div>
+            </form>
+        }
+    </div>
+</div>

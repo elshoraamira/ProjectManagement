@@ -1,0 +1,93 @@
+﻿@model projectManagementSys.Models.user
+@{
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+    //ViewBag.Title = Session["FName"] + " " + Session["LName"] + " " + "Profile";
+
+}
+
+<h2>AdminProfile</h2>
+<!-- Profile -->
+<div class="container-fluid">
+    <div class="row">
+        <div class="outer-w3-agile col-xl mt-3">
+            <div class="profile-main-w3ls">
+                @using (Html.BeginForm("ProfileAdmin", "Admin", FormMethod.Post, new { enctype = "multipart/form-data" }))
+                {
+
+                    @Html.AntiForgeryToken()
+
+                    @Html.ValidationSummary(true)
+
+                    @Html.HiddenFor(model => model.Id)
+                    <div class="profile-pic wthree">
+                        <div class="img-fluid">
+                            @{
+                                var base64 = Convert.ToBase64String(@Model.image);
+                                var imfsrc = string.Format("data:image/gif;base64,{0}", base64);
+                            }
+
+                            <img src="@imfsrc" class="img-responsive img-thumbnail" alt="Responsive image">
+
+                        </div>
+
+                        <h3>
+                            @Html.DisplayFor(model => model.username, new { @class = "tableStyle" })
+                        </h3>
+                        <p>
+                            @Html.DisplayFor(model => model.userType.usertype1, new { @class = "tableStyle" })
+                        </p>
+                    </div>
+                    <div class="w3-message">
+                        <h5>Description</h5>
+                        <p>
+                            @Html.DisplayFor(model => model.description, new { @class = "tableStyle" })
+
+                        </p>
+                        <div>
+
+                            <div class="table-primary">
+                                <ul>
+                                    <li>
+                                        <a>
+                                            @Html.DisplayNameFor(model => model.FName)
+                                            :
+                                            @Html.DisplayFor(model => model.FName, new { @class = "tableStyle" })
+
+                                        </a>
+                                    </li>
+                                    <br />
+                                    <li>
+                                        <a>
+
+                                            @Html.DisplayNameFor(model => model.LName)
+                                            :
+                                            @Html.DisplayFor(model => model.LName, new { @class = "tableStyle" })
+                                        </a>
+                                    </li>
+                                    <br />
+                                    <li>
+                                        <a>
+
+                                            @Html.DisplayNameFor(model => model.mobile)
+                                            :
+                                            @Html.DisplayFor(model => model.mobile, new { @class = "tableStyle" })
+                                        </a>
+                                    </li>
+                                    <br />
+                                    <li>
+                                        <a>
+                                            @Html.DisplayNameFor(model => model.Email)
+                                            :
+                                            @Html.DisplayFor(model => model.Email, new { @class = "tableStyle" })
+                                        </a>
+                                    </li>
+                                    <br />
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                  }
+                </div>
+        </div>
+        </div>
+    </div>

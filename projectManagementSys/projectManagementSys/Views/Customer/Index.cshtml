@@ -1,0 +1,154 @@
+﻿@model projectManagementSys.Models.project
+@{
+
+                ViewBag.Title = "Index";
+                Layout = "~/Views/Shared/_Layout1.cshtml";
+}
+<section class="content-info py-5" id="about">
+    <div class="container py-md-5">
+        <div class="text-center px-lg-5">
+            <div class="title-desc text-center px-lg-5">
+                <p class="px-lg-5 sub-wthree">Here , you can add your project's description you want to be done ! . so .. we'll find a project manager , leader and team to meet you and accomplish it for you .. </p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!--form-->
+<div class="container py-md-3">
+    <div class="footer-top text-center mb-5">
+
+        <div class="contact-form mx-auto text-left">
+            @if (ViewBag.Message != null)
+            {
+                <h3 class="LinkClass center-block">@ViewBag.Message</h3>
+            }
+
+            @using (Html.BeginForm("Addproject", "Customer", FormMethod.Post, new { enctype = "multipart/form-data" }))
+            {
+                <form class="contact2-form validate-form">
+                    <div class="wrap-input2 validate-input" data-validate="Message is required">
+                        @Html.TextBoxFor(model => model.Title, new { @class = "input100", placeholder = "Title", type = "text" })
+
+                        @Html.ValidationMessageFor(model => model.Title, "", new { @class = "MessageError" })
+                        <span class="focus-input2"></span>
+                    </div>
+                    <div class="wrap-input2 validate-input" data-validate="Message is required">
+                        @Html.TextBoxFor(model => model.Description, new { @class = "input2", placeholder = "Your Post here....", type = "text" })
+
+                        @Html.ValidationMessageFor(model => model.Description, "", new { @class = "MessageError" })
+                        <span class="focus-input2"></span>
+                    </div>
+                    <div class="wrap-input2 validate-input" data-validate="Message is required">
+                        @Html.TextBoxFor(model => model.Start_Date, new { @class = "input2", placeholder = "DD/MM/YYYY", type = "date" })
+
+                        @Html.ValidationMessageFor(model => model.Start_Date, "", new { @class = "MessageError" })
+                        <span class="focus-input2"></span>
+                    </div>
+                    <div class="wrap-input2 validate-input" data-validate="Message is required">
+                        @Html.TextBoxFor(model => model.End_Date, new { @class = "input2", placeholder = "DD/MM/YYYY", type = "date" })
+
+                        @Html.ValidationMessageFor(model => model.End_Date, "", new { @class = "MessageError" })
+                        <span class="focus-input2"></span>
+                    </div>
+                    <div class="container-contact2-form-btn">
+                        <div class="wrap-contact2-form-btn">
+                            <div class="contact2-form-bgbtn"></div>
+                            <button class="contact2-form-btn">
+                                Post
+                            </button>
+                        </div>
+                    </div>
+                </form>
+            }
+        </div>
+    </div>
+</div>
+<!--/post -->
+<section class="gallery py-5" id="gallery">
+    <div class="container py-md-5">
+
+        <h3 class="title-w3pvt text-center mb-5">projects</h3>
+        <div class="gallery-content">
+            <div class="row">
+                <table class="table col-xl mr-xl-3">
+                    <tbody>
+                    <thead>
+                        <tr>
+                            <th>
+
+                                @Html.DisplayNameFor(model => model.Title)
+
+                            </th>
+
+                            <th>
+
+                                @Html.DisplayNameFor(model => model.Description)
+
+                            </th>
+                            <th>
+
+                                @Html.DisplayNameFor(model => model.Start_Date)
+
+                            </th>
+                            <th>
+
+                                @Html.DisplayNameFor(model => model.End_Date)
+
+                            </th>
+                            <th>
+
+                                @Html.DisplayNameFor(model => model.Post_Status)
+
+                            </th>
+                        </tr>
+                    </thead>
+                    @*<tbody>
+                        @foreach (var item in Model)
+                        {
+                            //  if (item.user_Type.Equals(5) || item.user_Type.Equals(2) || item.user_Type.Equals(3) || item.user_Type.Equals(4) || item.user_Type.Equals(1))
+                            // {
+                            <tr class="table-primary">
+
+                                <td>
+
+                                    @Html.DisplayFor(modelItem => item.Title, new { @class = "tableStyle" })
+
+                                </td>
+
+                                <td>
+
+                                    @Html.DisplayFor(modelItem => item.Description, new { @class = "tableStyle" })
+
+                                </td>
+
+                                <td>
+
+                                    @Html.DisplayFor(modelItem => item.Start_Date, new { @class = "tableStyle" })
+
+                                </td>
+
+                                <td>
+
+                                    @Html.DisplayFor(modelItem => item.End_Date, new { @class = "tableStyle" })
+
+                                </td>
+                                <td>
+
+                                    @Html.DisplayFor(modelItem => item.Post_Status, new { @class = "tableStyle" })
+
+                                </td>
+                                <td nowrap>
+
+                                    @Html.ActionLink("Delete", "Deleteproject", new { id = item.PostID }, new { @class = "btn btn-primary" })
+                                    @Html.ActionLink("Update", "Editproject", new { id = item.PostID }, new { @class = "btn btn-primary" })
+                                </td>
+                            </tr>
+                        }
+                    </tbody>*@
+                </table>
+
+            </div>
+        </div>
+    </div>
+</section>

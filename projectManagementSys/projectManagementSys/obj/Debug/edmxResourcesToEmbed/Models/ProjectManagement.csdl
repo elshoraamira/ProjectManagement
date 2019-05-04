@@ -1,0 +1,383 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="projectMSysModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="ApprovedProject">
+    <Key>
+      <PropertyRef Name="ApprovedProjectID" />
+    </Key>
+    <Property Name="ApprovedProjectID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="project_id" Type="Int32" Nullable="false" />
+    <Property Name="ProjectMang_id" Type="Int32" Nullable="false" />
+    <Property Name="Cust_id" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="user" Relationship="Self.FK__ApprovedP__Cust___6B24EA82" FromRole="ApprovedProject" ToRole="users" />
+    <NavigationProperty Name="project" Relationship="Self.FK__ApprovedP__proje__693CA210" FromRole="ApprovedProject" ToRole="projects" />
+    <NavigationProperty Name="user1" Relationship="Self.FK__ApprovedP__Proje__6A30C649" FromRole="ApprovedProject" ToRole="users" />
+  </EntityType>
+  <EntityType Name="project">
+    <Key>
+      <PropertyRef Name="PostID" />
+    </Key>
+    <Property Name="PostID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Title" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="Description" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Start_Date" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="End_Date" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="Post_Status" Type="Int32" />
+    <Property Name="user_id" Type="Int32" />
+    <NavigationProperty Name="ApprovedProjects" Relationship="Self.FK__ApprovedP__proje__693CA210" FromRole="projects" ToRole="ApprovedProject" />
+    <NavigationProperty Name="user" Relationship="Self.FK__projects__user_i__2A4B4B5E" FromRole="projects" ToRole="users" />
+    <NavigationProperty Name="Requests" Relationship="Self.FK__Requests__Projec__70DDC3D8" FromRole="projects" ToRole="Requests" />
+    <NavigationProperty Name="Teams" Relationship="projectMSysModel.FK_projects_Team" FromRole="project" ToRole="Team" />
+    <NavigationProperty Name="JDRequests" Relationship="projectMSysModel.FK__JDRequest__proj___02084FDA" FromRole="project" ToRole="JDRequest" />
+    <NavigationProperty Name="TLRequests" Relationship="projectMSysModel.FK__TLRequest__Proje__787EE5A0" FromRole="project" ToRole="TLRequest" />
+    <Property Name="Avilable" Type="Int32" />
+  </EntityType>
+  <EntityType Name="Request">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="PM_ID" Type="Int32" Nullable="false" />
+    <Property Name="Project_ID" Type="Int32" Nullable="false" />
+    <Property Name="R_status" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="project" Relationship="Self.FK__Requests__Projec__70DDC3D8" FromRole="Requests" ToRole="projects" />
+    <NavigationProperty Name="user" Relationship="Self.FK__Requests__PM_ID__6477ECF3" FromRole="Requests" ToRole="users" />
+  </EntityType>
+  <EntityType Name="user">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="FName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="LName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="mobile" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="password" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="description" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="user_Type" Type="Int32" />
+    <Property Name="username" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="image" Type="Binary" MaxLength="Max" FixedLength="false" />
+    <NavigationProperty Name="ApprovedProjects" Relationship="Self.FK__ApprovedP__Cust___6B24EA82" FromRole="users" ToRole="ApprovedProject" />
+    <NavigationProperty Name="ApprovedProjects1" Relationship="Self.FK__ApprovedP__Proje__6A30C649" FromRole="users" ToRole="ApprovedProject" />
+    <NavigationProperty Name="projects" Relationship="Self.FK__projects__user_i__2A4B4B5E" FromRole="users" ToRole="projects" />
+    <NavigationProperty Name="Requests" Relationship="Self.FK__Requests__PM_ID__6477ECF3" FromRole="users" ToRole="Requests" />
+    <NavigationProperty Name="userType" Relationship="Self.FK__users__user_Type__619B8048" FromRole="users" ToRole="userType" />
+    <NavigationProperty Name="JDRequests" Relationship="projectMSysModel.FK__JDRequest__User___01142BA1" FromRole="user" ToRole="JDRequest" />
+    <NavigationProperty Name="TLRequests" Relationship="projectMSysModel.FK__TLRequest__TL_ID__778AC167" FromRole="user" ToRole="TLRequest" />
+  </EntityType>
+  <EntityType Name="userType">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" />
+    <Property Name="usertype1" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="users" Relationship="Self.FK__users__user_Type__619B8048" FromRole="userType" ToRole="users" />
+  </EntityType>
+  <Association Name="FK__ApprovedP__Cust___6B24EA82">
+    <End Role="users" Type="Self.user" Multiplicity="1" />
+    <End Role="ApprovedProject" Type="Self.ApprovedProject" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="users">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="ApprovedProject">
+        <PropertyRef Name="Cust_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__ApprovedP__proje__693CA210">
+    <End Role="projects" Type="Self.project" Multiplicity="1" />
+    <End Role="ApprovedProject" Type="Self.ApprovedProject" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="projects">
+        <PropertyRef Name="PostID" />
+      </Principal>
+      <Dependent Role="ApprovedProject">
+        <PropertyRef Name="project_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__ApprovedP__Proje__6A30C649">
+    <End Role="users" Type="Self.user" Multiplicity="1" />
+    <End Role="ApprovedProject" Type="Self.ApprovedProject" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="users">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="ApprovedProject">
+        <PropertyRef Name="ProjectMang_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__projects__user_i__2A4B4B5E">
+    <End Role="users" Type="Self.user" Multiplicity="0..1" />
+    <End Role="projects" Type="Self.project" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="users">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="projects">
+        <PropertyRef Name="user_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Requests__Projec__70DDC3D8">
+    <End Role="projects" Type="Self.project" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Requests" Type="Self.Request" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="projects">
+        <PropertyRef Name="PostID" />
+      </Principal>
+      <Dependent Role="Requests">
+        <PropertyRef Name="Project_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Requests__PM_ID__6477ECF3">
+    <End Role="users" Type="Self.user" Multiplicity="1" />
+    <End Role="Requests" Type="Self.Request" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="users">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Requests">
+        <PropertyRef Name="PM_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__users__user_Type__619B8048">
+    <End Role="userType" Type="Self.userType" Multiplicity="0..1" />
+    <End Role="users" Type="Self.user" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="userType">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="users">
+        <PropertyRef Name="user_Type" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="projectMSysEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="ApprovedProjects" EntityType="Self.ApprovedProject" />
+    <EntitySet Name="projects" EntityType="Self.project" />
+    <EntitySet Name="Requests" EntityType="Self.Request" />
+    <EntitySet Name="users" EntityType="Self.user" />
+    <EntitySet Name="userTypes" EntityType="Self.userType" />
+    <AssociationSet Name="FK__ApprovedP__Cust___6B24EA82" Association="Self.FK__ApprovedP__Cust___6B24EA82">
+      <End Role="users" EntitySet="users" />
+      <End Role="ApprovedProject" EntitySet="ApprovedProjects" />
+    </AssociationSet>
+    <AssociationSet Name="FK__ApprovedP__proje__693CA210" Association="Self.FK__ApprovedP__proje__693CA210">
+      <End Role="projects" EntitySet="projects" />
+      <End Role="ApprovedProject" EntitySet="ApprovedProjects" />
+    </AssociationSet>
+    <AssociationSet Name="FK__ApprovedP__Proje__6A30C649" Association="Self.FK__ApprovedP__Proje__6A30C649">
+      <End Role="users" EntitySet="users" />
+      <End Role="ApprovedProject" EntitySet="ApprovedProjects" />
+    </AssociationSet>
+    <AssociationSet Name="FK__projects__user_i__2A4B4B5E" Association="Self.FK__projects__user_i__2A4B4B5E">
+      <End Role="users" EntitySet="users" />
+      <End Role="projects" EntitySet="projects" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Requests__Projec__70DDC3D8" Association="Self.FK__Requests__Projec__70DDC3D8">
+      <End Role="projects" EntitySet="projects" />
+      <End Role="Requests" EntitySet="Requests" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Requests__PM_ID__6477ECF3" Association="Self.FK__Requests__PM_ID__6477ECF3">
+      <End Role="users" EntitySet="users" />
+      <End Role="Requests" EntitySet="Requests" />
+    </AssociationSet>
+    <AssociationSet Name="FK__users__user_Type__619B8048" Association="Self.FK__users__user_Type__619B8048">
+      <End Role="userType" EntitySet="userTypes" />
+      <End Role="users" EntitySet="users" />
+    </AssociationSet>
+    <FunctionImport Name="PM_PROJ" ReturnType="Collection(projectMSysModel.PM_PROJ_Result)">
+      <Parameter Name="ID" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="PM_REQ" ReturnType="Collection(projectMSysModel.PM_REQ_Result)">
+      <Parameter Name="C_ID" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <EntitySet Name="Teams" EntityType="projectMSysModel.Team" />
+    <AssociationSet Name="FK_projects_Team" Association="projectMSysModel.FK_projects_Team">
+      <End Role="project" EntitySet="projects" />
+      <End Role="Team" EntitySet="Teams" />
+    </AssociationSet>
+    <EntitySet Name="JDRequests" EntityType="projectMSysModel.JDRequest" />
+    <EntitySet Name="TLRequests" EntityType="projectMSysModel.TLRequest" />
+    <AssociationSet Name="FK__JDRequest__proj___02084FDA" Association="projectMSysModel.FK__JDRequest__proj___02084FDA">
+      <End Role="project" EntitySet="projects" />
+      <End Role="JDRequest" EntitySet="JDRequests" />
+    </AssociationSet>
+    <AssociationSet Name="FK__JDRequest__User___01142BA1" Association="projectMSysModel.FK__JDRequest__User___01142BA1">
+      <End Role="user" EntitySet="users" />
+      <End Role="JDRequest" EntitySet="JDRequests" />
+    </AssociationSet>
+    <AssociationSet Name="FK__TLRequest__Proje__787EE5A0" Association="projectMSysModel.FK__TLRequest__Proje__787EE5A0">
+      <End Role="project" EntitySet="projects" />
+      <End Role="TLRequest" EntitySet="TLRequests" />
+    </AssociationSet>
+    <AssociationSet Name="FK__TLRequest__TL_ID__778AC167" Association="projectMSysModel.FK__TLRequest__TL_ID__778AC167">
+      <End Role="user" EntitySet="users" />
+      <End Role="TLRequest" EntitySet="TLRequests" />
+    </AssociationSet>
+    <FunctionImport Name="JD_ReQ" ReturnType="Collection(projectMSysModel.JD_ReQ_Result)">
+      <Parameter Name="JD_ID" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="submitJD" ReturnType="Collection(projectMSysModel.submitJD_Result)" />
+    <FunctionImport Name="TL_ReQ" ReturnType="Collection(projectMSysModel.TL_ReQ_Result)">
+      <Parameter Name="T_ID" Mode="In" Type="Int32" />
+    </FunctionImport>
+  </EntityContainer>
+  <ComplexType Name="PM_PROJ_Result">
+    <Property Type="String" Name="Title" Nullable="true" MaxLength="200" />
+    <Property Type="String" Name="Description" Nullable="true" MaxLength="50" />
+    <Property Type="DateTime" Name="Start_Date" Nullable="false" />
+    <Property Type="DateTime" Name="End_Date" Nullable="false" />
+    <Property Type="String" Name="username" Nullable="true" MaxLength="50" />
+    <Property Type="Int32" Name="Post_Status" Nullable="true" />
+    <Property Type="Int32" Name="Id" Nullable="false" />
+    <Property Type="Int32" Name="PostID" Nullable="false" />
+  </ComplexType>
+  <ComplexType Name="PM_REQ_Result">
+    <Property Type="Int32" Name="PostID" Nullable="false" />
+    <Property Type="String" Name="Title" Nullable="true" MaxLength="200" />
+    <Property Type="String" Name="Description" Nullable="true" MaxLength="50" />
+    <Property Type="DateTime" Name="Start_Date" Nullable="false" />
+    <Property Type="DateTime" Name="End_Date" Nullable="false" />
+    <Property Type="Int32" Name="Post_Status" Nullable="true" />
+    <Property Type="Int32" Name="PM_ID" Nullable="true" />
+    <Property Type="Int32" Name="R_status" Nullable="true" />
+    <Property Type="String" Name="username" Nullable="true" MaxLength="50" />
+    <Property Type="Int32" Name="Id" Nullable="true" />
+  </ComplexType>
+  <EntityType Name="Team">
+    <Key>
+      <PropertyRef Name="Team_Id" />
+    </Key>
+    <Property Name="Team_Id" Type="Int32" Nullable="false" />
+    <Property Name="PM_ID" Type="Int32" Nullable="false" />
+    <Property Name="TL_ID" Type="Int32" Nullable="false" />
+    <Property Name="JD_ID" Type="Int32" Nullable="false" />
+    <Property Name="Post_ID" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="project" Relationship="projectMSysModel.FK_projects_Team" FromRole="Team" ToRole="project" />
+  </EntityType>
+  <Association Name="FK_projects_Team">
+    <End Type="projectMSysModel.project" Role="project" Multiplicity="1" />
+    <End Type="projectMSysModel.Team" Role="Team" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="project">
+        <PropertyRef Name="PostID" />
+      </Principal>
+      <Dependent Role="Team">
+        <PropertyRef Name="Post_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="JDRequest">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="User_ID" Type="Int32" Nullable="false" />
+    <Property Name="proj_ID" Type="Int32" Nullable="false" />
+    <Property Name="Rj_status" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="project" Relationship="projectMSysModel.FK__JDRequest__proj___02084FDA" FromRole="JDRequest" ToRole="project" />
+    <NavigationProperty Name="user" Relationship="projectMSysModel.FK__JDRequest__User___01142BA1" FromRole="JDRequest" ToRole="user" />
+  </EntityType>
+  <EntityType Name="TLRequest">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="TL_ID" Type="Int32" Nullable="false" />
+    <Property Name="ProjM_ID" Type="Int32" />
+    <Property Name="Project_ID" Type="Int32" Nullable="false" />
+    <Property Name="R_Status" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="project" Relationship="projectMSysModel.FK__TLRequest__Proje__787EE5A0" FromRole="TLRequest" ToRole="project" />
+    <NavigationProperty Name="user" Relationship="projectMSysModel.FK__TLRequest__TL_ID__778AC167" FromRole="TLRequest" ToRole="user" />
+  </EntityType>
+  <Association Name="FK__JDRequest__proj___02084FDA">
+    <End Type="projectMSysModel.project" Role="project" Multiplicity="1" />
+    <End Type="projectMSysModel.JDRequest" Role="JDRequest" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="project">
+        <PropertyRef Name="PostID" />
+      </Principal>
+      <Dependent Role="JDRequest">
+        <PropertyRef Name="proj_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__JDRequest__User___01142BA1">
+    <End Type="projectMSysModel.user" Role="user" Multiplicity="1" />
+    <End Type="projectMSysModel.JDRequest" Role="JDRequest" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="user">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="JDRequest">
+        <PropertyRef Name="User_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__TLRequest__Proje__787EE5A0">
+    <End Type="projectMSysModel.project" Role="project" Multiplicity="1" />
+    <End Type="projectMSysModel.TLRequest" Role="TLRequest" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="project">
+        <PropertyRef Name="PostID" />
+      </Principal>
+      <Dependent Role="TLRequest">
+        <PropertyRef Name="Project_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__TLRequest__TL_ID__778AC167">
+    <End Type="projectMSysModel.user" Role="user" Multiplicity="1" />
+    <End Type="projectMSysModel.TLRequest" Role="TLRequest" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="user">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="TLRequest">
+        <PropertyRef Name="TL_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <ComplexType Name="JD_ReQ_Result">
+    <Property Type="Int32" Name="PostID" Nullable="true" />
+    <Property Type="String" Name="Title" Nullable="true" MaxLength="200" />
+    <Property Type="String" Name="Description" Nullable="true" MaxLength="50" />
+    <Property Type="DateTime" Name="Start_Date" Nullable="true" />
+    <Property Type="DateTime" Name="End_Date" Nullable="true" />
+    <Property Type="Int32" Name="Post_Status" Nullable="true" />
+    <Property Type="String" Name="username" Nullable="true" MaxLength="50" />
+    <Property Type="Int32" Name="User_ID" Nullable="true" />
+    <Property Type="Int32" Name="proj_ID" Nullable="true" />
+    <Property Type="Int32" Name="Rj_status" Nullable="true" />
+    <Property Type="Int32" Name="Id" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="submitJD_Result">
+    <Property Type="Int32" Name="Id" Nullable="false" />
+    <Property Type="String" Name="description" Nullable="true" MaxLength="200" />
+    <Property Type="Int32" Name="user_Type" Nullable="true" />
+    <Property Type="String" Name="username" Nullable="true" MaxLength="50" />
+    <Property Type="Int32" Name="PostID" Nullable="false" />
+    <Property Type="String" Name="Title" Nullable="true" MaxLength="200" />
+    <Property Type="Int32" Name="Post_Status" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="TL_ReQ_Result">
+    <Property Type="Int32" Name="Id" Nullable="true" />
+    <Property Type="Int32" Name="TL_ID" Nullable="true" />
+    <Property Type="Int32" Name="R_Status" Nullable="true" />
+    <Property Type="Int32" Name="ProjM_ID" Nullable="true" />
+    <Property Type="Int32" Name="PostID" Nullable="false" />
+    <Property Type="String" Name="Title" Nullable="true" MaxLength="200" />
+    <Property Type="String" Name="Description" Nullable="true" MaxLength="50" />
+    <Property Type="DateTime" Name="Start_Date" Nullable="false" />
+    <Property Type="DateTime" Name="End_Date" Nullable="false" />
+    <Property Type="Int32" Name="Post_Status" Nullable="true" />
+    <Property Type="String" Name="username" Nullable="true" MaxLength="50" />
+  </ComplexType>
+</Schema>

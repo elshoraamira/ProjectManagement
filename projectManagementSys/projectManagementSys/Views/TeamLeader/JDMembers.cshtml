@@ -1,0 +1,93 @@
+﻿@model IEnumerable<projectManagementSys.Models.user>
+
+@{
+    ViewBag.Title = "JDMembers";
+    Layout = "~/Views/Shared/_LayoutTL.cshtml";
+}
+
+<style>
+    th {
+        text-align: center;
+    }
+</style>
+<div class="wrapper">
+    <div id="content">
+        <h2 class="main-title-w3layouts mb-2 text-center">Junior Developer Details</h2>
+        <section class="tables-section">
+            <div class="outer-w3-agile mt-3">
+                <div class="container-fluid">
+                    <div class="row">
+                        <table class="table col-xl mr-xl-3">
+                            <tbody>
+                            <thead>
+                                <tr>
+                                    <th>
+
+                                        @Html.DisplayNameFor(model => model.username)
+
+                                    </th>
+
+                                    <th>
+
+                                        @Html.DisplayNameFor(model => model.description)
+
+                                    </th>
+                                    <th>
+
+                                        @Html.DisplayNameFor(model => model.Email)
+
+                                    </th>
+                                    <th>
+
+                                        @Html.DisplayNameFor(model => model.mobile)
+
+                                    </th>
+                                    <th>
+
+
+                                    </th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var item in Model)
+                                {
+                                    //  if (item.user_Type.Equals(5) || item.user_Type.Equals(2) || item.user_Type.Equals(3) || item.user_Type.Equals(4) || item.user_Type.Equals(1))
+                                    // {
+                                    <tr class="table-primary">
+
+                                        <td>
+
+                                            @Html.DisplayFor(modelItem => item.username, new { @class = "tableStyle" })
+
+                                        </td>
+
+                                        <td>
+
+                                            @Html.DisplayFor(modelItem => item.description, new { @class = "tableStyle" })
+
+                                        </td>
+
+                                        <td>
+
+                                            @Html.DisplayFor(modelItem => item.Email, new { @class = "tableStyle" })
+
+                                        </td>
+
+                                        <td>
+
+                                            @Html.DisplayFor(modelItem => item.mobile, new { @class = "tableStyle" })
+
+                                        </td>
+                                        <td nowrap>
+                                            @Html.ActionLink("SubmitToproject", "SubmitProject", new { id = item.Id }, new { @class = "btn btn-primary" })
+                                        </td>
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+</div>

@@ -1,0 +1,141 @@
+﻿@model IEnumerable<projectManagementSys.Models.Team>
+
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_LayoutPM.cshtml";
+}
+
+<h2 class="main-title-w3layouts mb-2 text-center">Team Member</h2>
+
+<div class="blank-page-content">
+    <div class="row">
+        <div class="col-12">
+            <div class="card">
+                <div class="card-body p-0">
+                    <div class="table-responsive">
+                        <table class="table table-striped">
+                            <tbody>
+                                <tr>
+                                    <th>
+                                        @Html.DisplayNameFor(model => model.PM_ID)
+                                    </th>
+                                    <th>
+                                        @Html.DisplayNameFor(model => model.TL_ID)
+                                    </th>
+                                    <th>
+                                        @Html.DisplayNameFor(model => model.JD_ID)
+                                    </th>
+                                    <th>
+                                        @Html.DisplayNameFor(model => model.project.Title)
+                                    </th>
+                                    <th></th>
+                                </tr>
+                                @foreach (var item in Model)
+                                {
+                                    <tr>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.PM_ID)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.TL_ID)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.JD_ID)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.project.Title)
+                                        </td>
+                                        <td>
+                                           
+                                           
+                                            
+                                                <a href="@Url.Action("DeleteTeam","ProjectManager",new { id = item.Team_Id })" class="btn btn-danger">Delete</a>
+
+                                            
+                                                
+                                        </td>
+                                    </tr>
+                                }
+
+</table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<h2 class="main-title-w3layouts mb-2 text-center">Sechadual</h2>
+<div class="blank-page-content">
+
+    <!-- Error Page Info -->
+
+    <div class="row">
+        <div class="col-12">
+            <div class="card">
+                <!--<div class="card-header">
+                  <h4>Project Table</h4>
+                  <div class="card-header-form">
+                    <form>
+                      <div class="input-group">
+                        <input type="text" class="form-control" placeholder="Search">
+                        <div class="input-group-btn">
+                          <button class="btn btn-primary"><i class="fas fa-search"></i></button>
+                        </div>
+                      </div>
+                    </form>
+                  </div>
+                //</div>-->
+                <div class="card-body p-0">
+                    <div class="table-responsive">
+                        <table class="table table-striped">
+                            <tbody>
+                                <tr>
+
+                                    <th>
+                                        @Html.DisplayNameFor(model => model.project.Start_Date)
+                                    </th>
+                                    <th>
+                                        @Html.DisplayNameFor(model => model.project.End_Date)
+                                    </th>
+                                    <th>Price</th>
+                                </tr>
+                                @foreach (var item in Model)
+                                {
+                                    <tr>
+
+                                        <td>
+                                          @Html.DisplayFor(modelitem => item.project.Start_Date)
+                                        </td>
+
+                                        <td> @Html.DisplayFor(modelitem => item.project.End_Date)</td>
+                                        <td>$5000</td>
+                                        </tr>
+                                }
+
+
+                                </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--// Error Page Content -->
+    <div class="blank-page-content">
+
+        <!-- Error Page Info -->
+
+        <h2 class="main-title-w3layouts mb-2 text-center"></h2>
+        @foreach (var row in Model)
+        {
+            @* <a href="@Url.Action("ProjectComplete", "ProjectManagment", new { id =  })" class="btn btn-primary">Complete</a>*@
+
+            @Html.ActionLink("complete", "ProjectComplete", new { id = row.Post_ID }, new { @class = "btn btn-primary" })
+
+        }
+    </div>
+</div>

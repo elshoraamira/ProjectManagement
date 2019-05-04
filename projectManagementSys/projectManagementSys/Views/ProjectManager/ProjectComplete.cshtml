@@ -1,0 +1,47 @@
+﻿@model projectManagementSys.Models.project
+
+@{
+    Layout = "~/Views/Shared/_LayoutPM.cshtml";
+}
+
+<h2>Complete</h2>
+
+<h3>Are you sure you complete this project?</h3>
+<div>
+    <h4>project</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.PostID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PostID)
+        </dd>
+
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Title)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Title)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+        @Html.HiddenFor(model => model.PostID)
+        <div class="form-actions no-color">
+
+            <input type="submit" value="Complete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "DetailsTeam")
+        </div>
+    }
+
+
+</div>
+
+
